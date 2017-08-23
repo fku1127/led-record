@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/led.css" rel="stylesheet">
+    <link href="css/rec.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+
+    <!-- Insert this line above script imports  -->
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="semantic/dist/semantic.min.js"></script>
+
+    <!-- Insert this line after script imports -->
+    <script>if (window.module) module = window.module;</script>
+
+    <style>
+      body { 
+        font: 14pt Arial, sans-serif; 
+        background: lightgrey;
+        /*
+        display: flex;
+        flex-direction: column;
+        margin: 0 0;
+        */
+      }
+      #record {
+        display: block;
+        margin: auto;
+        height: 30vh;
+        /*
+        width: 40%;
+        height: 15vh;
+        margin: auto;
+        */
+      }
+      #record.recording { 
+        background: red;
+        background: -webkit-radial-gradient(center, ellipse cover, #ff0000 0%,lightgrey 75%,lightgrey 100%,#7db9e8 100%); 
+        background: -moz-radial-gradient(center, ellipse cover, #ff0000 0%,lightgrey 75%,lightgrey 100%,#7db9e8 100%); 
+        background: radial-gradient(center, ellipse cover, #ff0000 0%,lightgrey 75%,lightgrey 100%,#7db9e8 100%); 
+      }
+    </style>
+    <script>
+      // You can also require other files to run in this process
+      //require('./renderer.js')
+    </script>
+    <script>
+      function toggleRecording(e) {
+        if (e.classList.contains("Rec")) {
+            e.classList.remove("Rec");
+            e.classList.add("notRec");
+        } else {
+            e.classList.remove("notRec");
+            e.classList.add("Rec");
+        }
+      }
+
+      function toggleMainRecording(e) {
+        if (e.classList.contains("recording")) {
+            e.classList.remove("recording");
+        } else {
+            e.classList.add("recording");
+        }
+      }
+    </script>
+  </head>
+  
+  <body>
+    <div>
+      <div class="led-box">
+        <div class="led-green"></div>
+        <p>Green LED</p>
+      </div>
+      <div class="led-box">
+        <div class="led-yellow"></div>
+        <p>Yellow LED</p>
+      </div>
+      <div class="led-box">
+        <div class="led-red"></div>
+        <p>Red LED</p>
+      </div>
+      <div class="led-box">
+        <div class="led-blue"></div>
+        <p>Blue LED</p>
+      </div>
+    </div>
+
+    <div>
+      <div class="led-box">
+        <button id="recButton" class="notRec" onclick="toggleRecording(this);"></button>
+      </div>
+      <div class="led-box">
+        <button id="recButton" class="notRec" onclick="toggleRecording(this);"></button>
+      </div>
+      <div class="led-box">
+        <button id="recButton" class="notRec" onclick="toggleRecording(this);"></button>
+      </div>
+      <div class="led-box">
+        <button id="recButton" class="notRec" onclick="toggleRecording(this);"></button>
+      </div>
+    </div>
+
+    <div>
+      <img id="record" src="img/mic128.png" onclick="toggleMainRecording(this);">
+    </div>
+
+    <br/>
+
+    <div>
+      <input type="number" id="windowSize" min="0" step=10 />
+      <input type="number" id="threshold" min="0" step="0.1"/>
+    </div>
+  </body>
+</html>
