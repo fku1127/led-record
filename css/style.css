@@ -1,0 +1,25 @@
+.center {
+  position: absolute;
+  left: 50%;
+}
+.column {
+	height: 7rem
+}
+.ui.icon.button {
+	background-color: white!important
+}
+.ui.circular.button {
+	background-color: #d4d4d5!important
+}
+.ui.attached.segment {
+	border:1px #d4d4d5
+}
+.on.icon {
+	color:red
+}
+.margintop5 {
+	margin-top: 5rem!important
+}
+input[type="range"]{
+	width: 100%;
+}
